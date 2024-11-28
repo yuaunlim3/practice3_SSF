@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Welcome <span data-th-text="${loginUser.name}"></span></h1>
+
+    <div>
+        <table>
+            <tr>
+                <td>
+                    Last login:
+                </td>
+                <td>
+                    <span data-th-text="${loginUser.dateLogin}"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Created Date:
+                </td>
+                <td>
+                    <span data-th-text="${loginUser.dateCreated}"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>
