@@ -1,0 +1,47 @@
+.large-image {
+    width: 150px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.large-text {
+    font-size: 1.5em;
+}
+.weather{
+    max-width: 100%;
+    background-color: lightblue;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Horizontal, vertical, blur, color */
+}
+
+.weatherInfo{
+    font-weight: bolder;
+    font-size: larger;
+    background-color: lightblue;
+}
+
+.info{
+    font-weight: normal;
+    font-size: large
+}
+
+.title {
+    position: relative;
+    color: black; /* Ensure the text color is solid */
+    padding: 10px;
+    border-radius: 5px;
+    overflow: hidden; /* Ensures child elements don't overflow */
+}
+
+.title .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: lightblue; 
+    opacity: 0.8; 
+    z-index: -1; /* Place behind the text */
+}
+
+.title h1 {
+    position: relative; /* Bring the text above the background */
+}

@@ -1,0 +1,49 @@
+body {
+    background: radial-gradient(circle, blue 0%, white 100%);
+}
+
+.accountInfo{
+    padding: 5px;
+    background-color: lightblue;
+    max-width: 100%;
+    margin: 250px auto; /* Center the form horizontally with a top margin */
+    display:flex;
+    flex-direction: row; /* Stack content vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Horizontal, vertical, blur, color */
+    border-radius: 20px;
+}
+
+.search{
+    background-color: transparent;
+    border: 0;
+    font-size: medium;
+
+}
+.search:hover{
+    background-color: aqua;
+    font-size: medium;
+    border: 0;
+}
+
+
+.welcome{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Horizontal, vertical, blur, color */
+    border-width: 4px;
+    border-style: solid;
+    border-image: linear-gradient(to right, red, blue) 1;
+    background-color: white;
+
+    text-align: center;
+    font-weight: bolder;
+
+}
+
+.weatherSearch{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Horizontal, vertical, blur, color */
+    background-color: lightblue;
+    max-width: 100%;
+    margin: 250px auto; /* Center the form horizontally with a top margin */
+}
+

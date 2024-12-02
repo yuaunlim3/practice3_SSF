@@ -24,7 +24,7 @@ public class loginServices {
         user.setDateCreated(new Date());
         user.setDateLogin(new Date());
 
-        logger.info(user.toString());
+        //logger.info(user.toString());
 
         loginRepo.newUser(id, user);
     }

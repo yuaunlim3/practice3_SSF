@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/weather.css">
+    <style>
+        body {
+            background-image: url('[[${gifUrl}]]');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="title">
+        <div class="background"></div>
+        <h1>This is the weather data for <span data-th-text="${weatherInfo.country}"></span></h1>
+    </div>
+    <div class="weather">
+        <div class="background"></div>
+        <table>
+            <tr>
+                <td>
+                    <img class="large-image" data-th-src="${weatherInfo.imageUrl}" alt="">
+                </td>
+                <td>
+                    <code class="large-text" data-th-text="${weatherInfo.weatherInfo}"></code>
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+
+    <br><br>
+    <div>
+        <table class="weatherInfo">
+            <div class="background"></div>
+            <tr>
+                <td data-th-if="${unit == 1}">
+                    Temperature /°C: <span data-th-text="${weatherInfo.temp}" class="info"></span>
+                </td>
+                <td data-th-if="${unit == 0}">
+                    Temperature /°F: <span data-th-text="${weatherInfo.temp}" class="info"></span>
+                </td>
+            </tr>
+            <tr>
+                <td data-th-if="${unit == 1}">
+                    Pressure /mbar: <code data-th-text="${weatherInfo.pressure}" class="info"></code>
+                </td>
+                <td data-th-if="${unit == 0}">
+                    Pressure /inHg: <code data-th-text="${weatherInfo.pressure}" class="info"></code>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Sunrise time: <code data-th-text="${weatherInfo.sunrise}" class="info"></code>
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    Sunset time: <code data-th-text="${weatherInfo.sunset}" class="info"></code>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Humidity /%: <code data-th-text="${weatherInfo.humidity}" class="info"></code>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <form data-th-action="@{/homepage/{name}(name=${name})}" method="POST">
+        <button type="submit">Back</button>
+    </form>
+    
+</body>
+</html>

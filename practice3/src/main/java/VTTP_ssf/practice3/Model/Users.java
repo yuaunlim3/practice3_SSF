@@ -15,7 +15,6 @@ import jakarta.validation.constraints.Size;
 public class Users {
 
     @NotEmpty(message = "Name cannot be empty")
-    @Size(min = 2, max = 32, message = "Name must between 2 to 32 characters")
     private String name;
 
     private String Id;
@@ -23,7 +22,6 @@ public class Users {
     private Date dateLogin;
 
     @NotEmpty(message = "Password cannot be empty")
-    @Size(min = 2, max = 32, message = "Password must between 2 to 32 characters")
     private String password;
 
     public Date getDateCreated() {
@@ -100,7 +98,7 @@ public class Users {
 
     @Override
     public String toString() {
-        return "Users [name=" + name + ", Id=" + Id + ", dateCreated=" + dateCreated + ", dateLogin=" + dateLogin
+        return "[name=" + name + ", Id=" + Id + ", dateCreated=" + dateCreated + ", dateLogin=" + dateLogin
                 + ", password=" + password + "]";
     }
 

@@ -49,7 +49,7 @@ public class loginRepo {
         if (value != null) {
             try (JsonReader reader = Json.createReader(new StringReader(value))) {
                 JsonObject body = reader.readObject();
-                logger.info("JSON VALUE: %s\n".formatted(body.toString()));
+                //logger.info("JSON VALUE: %s\n".formatted(body.toString()));
 
                 // Get the current date and time
                 Date date = new Date();
@@ -64,7 +64,7 @@ public class loginRepo {
                         .build();
 
                 // Log the updated JSON object
-                logger.info("UPDATED JSON VALUE: %s\n".formatted(updatedBody.toString()));
+                //logger.info("UPDATED JSON VALUE: %s\n".formatted(updatedBody.toString()));
                 valueOps.set(id, updatedBody.toString());
                 return Users.fromJson(updatedBody);
 

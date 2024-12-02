@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login page</title>
+    <link rel="stylesheet" href="/login.css">
 </head>
 
 <body>
     <div>
         <form action="/loginpage" method="POST" data-th-object="${user}">
-            <h1>Login page</h1>
+            <h1 class = "title">Login page</h1>
             <div>
                 <table>
 
@@ -20,7 +21,7 @@
                         </td>
                         <td>
                             <input type="text" data-th-field="*{name}" placeholder="Enter your name">
-                            <span data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}"></span>
+                            <span data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}" class = "error"></span>
                             </span>
                         </td>
                     </tr>
@@ -30,13 +31,20 @@
                         </td>
                         <td>
                             <input type="text" data-th-field="*{password}" placeholder="Enter password">
-                            <span data-th-if="${#fields.hasErrors('password')}" data-th-errors="*{password}"></span>
+                            <span data-th-if="${#fields.hasErrors('password')}" data-th-errors="*{password}" class = "error"></span>
                             </span>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="button">
                         <td>
-                            <button type="submit">Login</button>
+                            <button type="submit">
+                                Login
+                                <div class="arrow-wrapper">
+                                    <div class="arrow"></div>
+                            
+                                </div>
+                            </button>
+                            
                         </td>
                     </tr>
                 </table>

@@ -4,13 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Homepage</title>
+    <link rel="stylesheet" href="/homepage.css">
 </head>
 
 <body>
-    <h1>Welcome <span data-th-text="${loginUser.name}"></span></h1>
+    <div class = "welcome">
+        <h1>Welcome <span data-th-text="${loginUser.name}"></span></h1>
+    </div>
 
-    <div>
+    <br>
+
+
+
+    <form action="/weatherData" method="POST" class="weatherSearch">
+        <h1>Search for Weather</h1>
+        <input type="hidden" name="name" th:value = "${loginUser.name}"/>
+        <input type="text" name="country" placeholder="Enter city" required />
+
+        <table>
+            <tr>
+                <td>
+                    <legend>Select unit of measurement:</legend>
+                </td>
+                <td>
+                    <input type="radio" name="unit" value="imperial" id="unit1" required />
+                    <label for="unit1">Imperial</label>
+            
+                    <input type="radio" name="unit" value="metric" id="unit2" required />
+                    <label for="unit2">Metric</label>
+                </td>
+
+            </tr>
+        </table>
+
+        <button type="submit" class="search">Get Weather</button>
+    </form>
+
+
+
+
+
+
+
+    <div class="accountInfo">
         <table>
             <tr>
                 <td>
@@ -29,6 +66,12 @@
                 </td>
             </tr>
         </table>
+    </div>
+
+    <div class = "logout">
+        <form action="/" method="POST">
+            <button type="submit">Logout</button>
+        </form>
     </div>
 
 </body>

@@ -1,7 +1,6 @@
 package VTTP_ssf.practice3.Controller;
 
 import java.text.ParseException;
-import java.util.Date;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +30,11 @@ public class loginController {
         return "login";
     }
 
+    @PostMapping({ "/index", "/"})
+    public String logout(Model model) {
+        model.addAttribute("user", new Users());
+        return "login";
+    }
     @GetMapping("/createaccount")
     public String create(Model model) {
         model.addAttribute("newUser", new Users());
@@ -46,7 +50,7 @@ public class loginController {
         }
         if (!loginSrv.checkUser(currUser)) {
             logger.info("Does not exist");
-            FieldError err1 = new FieldError("user", "username", "User does not exist");
+            FieldError err1 = new FieldError("user", "name", "User does not exist");
             bindings.addError(err1);
             FieldError err2 = new FieldError("user", "password", "");
             bindings.addError(err2);
@@ -74,8 +78,8 @@ public class loginController {
         }
 
         loginSrv.newUser(newUser);
-        model.addAttribute("loginUser", newUser);
-        return "redirect:/homepage/" + newUser.getName();
+        model.addAttribute("user", new Users());
+        return "login";
     }
 
 }

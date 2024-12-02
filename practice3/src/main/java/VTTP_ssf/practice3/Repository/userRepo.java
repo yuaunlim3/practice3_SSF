@@ -23,21 +23,22 @@ public class userRepo {
     @Qualifier("redis-object")
     private RedisTemplate template;
 
-    public Users getUser(String name){
+    public Users getUser(String name) {
         Set<String> keys = template.keys("*");
+        //System.out.println("Retrieved keys: %s\n".formatted(keys));
         if (keys != null) {
             for (String key : keys) {
-                // Retrieve the value associated with the key from the data store
                 String value = (String) template.opsForValue().get(key);
-
+                System.out.println("Value for key %s: %s\n".formatted(key,value));
                 if (value != null) {
                     try (JsonReader reader = Json.createReader(new StringReader(value))) {
                         JsonObject body = reader.readObject();
-
-                        // Check if the JSON object contains the "name" key and compare it
                         if (body.containsKey("name") && body.getString("name").equals(name)) {
-                            return Users.fromJson(body);
-                        } 
+                            //logger.info("Name found");
+                            Users user = Users.fromJson(body);
+                            return user;
+                        }
+                        
                     } catch (Exception e) {
                         System.err.println("Error parsing JSON for key " + key + ": " + e.getMessage());
                     }
@@ -45,6 +46,7 @@ public class userRepo {
             }
         }
         return null;
+
     }
 
 }
